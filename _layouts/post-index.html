@@ -21,9 +21,6 @@
             $('.ust').css({
               'filter'         : 'blur(5px)'
             });
-            $('ul.menu').css({
-              'animation-duration': '0.1s'
-            });
             i++;
           }
           else {
@@ -67,7 +64,7 @@
               <div class="ustr">
                 <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
                 <div class="yazibilgisi">
-                  {{ post.date | date_to_string }} tarihinde yayınlandı.
+                  {{ post.date | date_to_string }} 
                 </div>
               </div>
             </div>

@@ -2,14 +2,14 @@
 %btnextend {
 	display: inline-block;
 	border: 1px solid;
-	border-color: rgba($color_mercury,0.5) rgba($color_bon_jour,0.5) $color_mischka;
+	border-color: rgba(0,0,0,0.5);
 	border-radius: 3px;
 	text-decoration: none;
-	background: $white;
-	color: $color_shark;
+	background: white;
+	color: #282828;
 	&:hover {
-		box-shadow: 0 0 1px 0 rgba($color_shark,0.5);
-		color: $red;
+		box-shadow: 0 0 1px 0 rgba(80,80,80,0.5);
+		color: red;
 	}
 }
 .social-btn {
@@ -24,49 +24,49 @@
 	@extend %btnextend;
 	&.btn-success {
       background-color: $success;
-      color: $white;
+      color: white;
       border-color: $success;
       &:visited {
-        color: $white;
+        color: white;
       }
       &:hover {
-        background-color: $white;
+        background-color: white;
         color: $success;
       }
     }
     &.btn-warning {
       background-color: $warning;
-      color: $white;
+      color: white;
       border-color: $warning;
       &:visited {
-        color: $white;
+        color: white;
       }
       &:hover {
-        background-color: $white;
+        background-color: white;
         color: $warning;
       }
     }
     &.btn-danger {
       background-color: $danger;
-      color: $white;
+      color: white;
       border-color: $danger;
       &:visited {
-        color: $white;
+        color: white;
       }
       &:hover {
-        background-color: $white;
+        background-color: white;
         color: $danger;
       }
     }
     &.btn-info {
       background-color: $info;
-      color: $white;
+      color: white;
       border-color: $info;
       &:visited {
-        color: $white;
+        color: white;
       }
       &:hover {
-        background-color: $white;
+        background-color: white;
         color: $info;
       }
     }
@@ -118,12 +118,12 @@ img {
 }
 .img-circle {
 	border-radius: 50%;
-	border: 3px solid $white;
+	border: 3px solid white;
 	height: 150px;
 	width: 150px;
 }
 .author-photo {
-    background-color: $white;
+    background-color: white;
 }
 .image-right {
     float: right;

@@ -1,11 +1,13 @@
 # Site
-title: Riot-Gear
+title: '[riot-gear] alex_dugger $>'
+attribution: 'Alex Dugger'
 email: alex@riot-gear.net
 description: >
-  Another site by another software engineer.
+  Software Engineer with passion for designing and building practicle solutions
+  to complex problems.
 baseurl: ""
 url: "http://riot-gear.net"
-bio:            'Just a simple Jekyll theme'
+bio:            'Software Engineering and More!'
 picture:        'assets/img/profile.png'
 locale:         en_US
 
@@ -30,21 +32,7 @@ sass:
 
 twitter: alexdugger
 github:  dugger
-facebook: username
-#google:
-  #plus: #username
-  #analytics:
-  #verify:
-  #ad-client:
-  #ad-slot:
-#bing-verify:
-stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
 linkedin: username
-instagram: username
-lastfm: username
-tumblr: username
-steam: username
-youtube: username
 
 # Paginate
 # if you don't need pagination, comment the *paginate* configs below

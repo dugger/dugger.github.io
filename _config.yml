@@ -1,5 +1,5 @@
 # Site
-title: '[riot-gear] alex_dugger $>'
+title: 'alex_dugger $>'
 attribution: 'Alex Dugger'
 email: alex@riot-gear.net
 description: >
@@ -32,7 +32,7 @@ sass:
 
 twitter: alexdugger
 github:  dugger
-linkedin: username
+linkedin: alex-dugger-b2a2a9b4
 
 # Paginate
 # if you don't need pagination, comment the *paginate* configs below

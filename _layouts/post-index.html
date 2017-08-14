@@ -64,7 +64,12 @@
               <div class="ustr">
                 <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
                 <div class="yazibilgisi">
-                  {{ post.date | date_to_string }} 
+                  {{ post.date | date_to_string }}
+                </div>
+              </div>
+              <div>
+                <div style="margin-left: 25px;">
+                  <p>{{ post.excerpt }}</p><br />
                 </div>
               </div>
             </div>

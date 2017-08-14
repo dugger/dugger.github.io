@@ -3,6 +3,7 @@ layout: post
 title:  "Nil as a Hash Key"
 date:   2015-10-02 15:08:13
 categories: ruby
+excerpt: "This is something you can do, but should you..."
 ---
 I was doing a little code review with a teammate and one of his hash definitions caught my eye.  It looked something like this...
 

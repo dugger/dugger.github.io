@@ -4,9 +4,8 @@ title: Resume
 tags: []
 date: 2017-08-01
 ---
-## Summary
-Full Stack Software Engineer with experience building scalable web applications using Ruby on
-Rails and other current technologies. A personable developer skilled at communicating in
+I'm a Full Stack Software Engineer with experience building scalable web applications using Ruby on
+Rails and other current technologies; a personable developer skilled at communicating in
 nontechnical ways and designing elegant solutions to complex problems.
 
 ## Technical Skills

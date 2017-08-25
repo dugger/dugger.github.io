@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blattfruit Pie – alex_dugger $&gt;</title>
-    <meta name="description" content="My brother is a jerk…">
+    <meta name="description" content="A little ‘trojan’ I wrote to troll my brother.">
     <meta name="keywords" content="">
     <link rel="canonical" href="http://localhost:4000/blattfruit_pie/">
         <!-- Twitter Cards -->
     <meta name="twitter:title" content="Blattfruit Pie">
-    <meta name="twitter:description" content="My brother is a jerk…">
+    <meta name="twitter:description" content="A little ‘trojan’ I wrote to troll my brother.">
     <meta name="twitter:site" content="@alexdugger">
     <meta name="twitter:creator" content="@alexdugger">
     <meta name="twitter:card" content="summary">
@@ -20,7 +20,7 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Blattfruit Pie">
-    <meta property="og:description" content="My brother is a jerk…">
+    <meta property="og:description" content="A little ‘trojan’ I wrote to troll my brother.">
     <meta property="og:url" content="http://localhost:4000/blattfruit_pie/">
     <meta property="og:site_name" content="alex_dugger $&gt;">
     <meta property="og:image" content="http://localhost:4000/assets/img/profile.png">
@@ -142,14 +142,32 @@
           <div class="ustr">
             <h2>Blattfruit Pie</h2>
             <div class="yazibilgisi">
-              30 Dec 2012
+              25 Aug 2017
             </div>
           </div>
           <hr>
           <div class="content">
-            <p>My stupid brother use to prank my family by changing the backgrounds of laptops, phones, and tablets to his stupid face. Then, he changed my mother’s background to “Jeff Goldblum is Watching You Poop”.  She wasn’t pleased. This project was retaliation on her behalf.</p>
+            <p>Several years ago my stupid brother (the target) liked to prank my family by changing the backgrounds of laptops, phones, and tablets to his stupid face. It was funny, but got annoying, and he took it too far.  He changed my mother’s background to the <a href="http://knowyourmeme.com/memes/jeff-goldblum-is-watching-you-poop">“Jeff Goldblum is Watching You Poop”</a> meme.  She wasn’t pleased. I devised this project as retaliation on her behalf.</p>
 
-<p><a href="https://github.com/dugger/blattfruit_pie">https://github.com/dugger/blattfruit_pie</a></p>
+<h3 id="github-duggerblattfruit_pie">Github: <a href="https://github.com/dugger/blattfruit_pie">dugger/blattfruit_pie</a>
+</h3>
+
+<p>My brother introduced me to video games.  Playing Sierra’s Quest games on his Commodore Amiga is one of the fondest memories I have of my childhood.  There is a piece of dialog in Space Quest III I’ve always found funny. When you order your food at Monolith Burger, The Pushy Counter Clerk asks “Would you like a Blattfruit Pie with that?”, your options are Yes and Yes. I picked this idea as the center of my trolling for nostalgia and because I knew it would be instantly recognizable to my target.</p>
+
+<p><img src="http://localhost:4000/assets/img/blattfruit-applescript.png" alt="Would you like a Blattfruit Pie with that?"></p>
+
+<p>The original version was a simple dialog box built using AppleScript.  It lacked the styling of the dialog box from the game, but it got the point across.</p>
+
+<figure class="highlight"><pre><code class="language-applescript" data-lang="applescript"><span class="k">tell</span><span class="w"> </span><span class="nb">application</span><span class="w"> </span><span class="s2">"Finder"</span><span class="w">
+  </span><span class="nb">activate</span><span class="w">
+  </span><span class="nb">display dialog</span><span class="w"> </span><span class="s2">"Would you like a blattfruit pie with that?"</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="na">title</span><span class="w"> </span><span class="s2">"Pushy Counter Clerk"</span><span class="w"> </span><span class="nb">buttons</span><span class="w"> </span><span class="p">{</span><span class="s2">"Yes"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Yes"</span><span class="p">}</span><span class="w">
+</span><span class="k">end</span><span class="w"> </span><span class="k">tell</span></code></pre></figure>
+
+<p>The dialog was triggered using a cron task that I installed on the target’s machine; a little bash script would curl a text file I stored in a public Dropbox folder, read the unix timestamp from the file, and trigger the dialog if the timestamp had passed.  I had to install it manually on his machine, and I had to have his password in order to allow the dialog app to be run (since the app isn’t signed).  Despite all this, I installed it successfully, and for the next nine months my family reveled in his confused excitement at discovering some secret easter egg in OS X.</p>
+
+<p><img src="http://localhost:4000/assets/img/blattfruit.png" alt="Would you like a Blattfruit Pie with that?"></p>
+
+<p>In the end he got a new computer and I never got to reinstall it there, so it died.  I confessed to it not long after, and we had a good laugh, but I’ve never been able to put this project to bed.  I’ve always wanted to learn more C / Objective C / Xcode, and this provided a fine base for doing that.  So far I’ve rebuilt the dialog in Xcode and styled it to look just like the game, and I’ve got a list of new features I want to add.  Someday I’ll install the new and improved version on his computer…</p>
 
           </div>
         </div>

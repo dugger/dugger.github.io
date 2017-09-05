@@ -5,7 +5,7 @@ author: "Me!"
 date:   2017-08-25
 categories: bash
 project: true
-image: ""
+image: "/assets/img/blattfruit-pcc.png"
 excerpt: "A little 'trojan' I wrote to troll my brother."
 ---
 Several years ago my stupid brother (the target) liked to prank my family by changing the backgrounds of laptops, phones, and tablets to his stupid face. It was funny, but got annoying, and he took it too far.  He changed my mother's background to the ["Jeff Goldblum is Watching You Poop"](http://knowyourmeme.com/memes/jeff-goldblum-is-watching-you-poop) meme.  She wasn't pleased. I devised this project as retaliation on her behalf.

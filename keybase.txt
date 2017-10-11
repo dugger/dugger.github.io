@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/thedugger
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://riot-gear.net
+  * I am thedugger (https://keybase.io/thedugger) on keybase.
+  * I have a public key ASC2tARJFVU8G-xU6ag6PCLLZ7MXod8QdBUGpZTTaOpl9go
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120282164e2a3d2f655d727d48383be9966ff638294cffb4d9c8c76cc666ca545f50a",
+      "host": "keybase.io",
+      "kid": "0120b6b4044915553c1bec54e9a83a3c22cb67b317a1df10741506a594d368ea65f60a",
+      "uid": "174ab5e5d96721d0ba5f998e5865ca19",
+      "username": "thedugger"
+    },
+    "merkle_root": {
+      "ctime": 1507735017,
+      "hash": "684ef1c34ee8c9bf519b5612209ae7f5ba68496835f4c94e33b90590b2d8d3742195596ce82cd0497cc2766de0ac2553b52741af34a8622e2411c7700a954536",
+      "hash_meta": "832d417532d7e807434a9030139f6ef8f936fb777098f49d18a13e6bed7306e9",
+      "seqno": 1559226
+    },
+    "service": {
+      "hostname": "riot-gear.net",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.33"
+  },
+  "ctime": 1507735028,
+  "expire_in": 504576000,
+  "prev": "82795d0d74a1d29346bbc1f42991a00f4ce4fe3abb6d1949809902a55477c7c4",
+  "seqno": 23,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgtrQESRVVPBvsVOmoOjwiy2ezF6HfEHQVBqWU02jqZfYKp3BheWxvYWTFA0Z7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMjgyMTY0ZTJhM2QyZjY1NWQ3MjdkNDgzODNiZTk5NjZmZjYzODI5NGNmZmI0ZDljOGM3NmNjNjY2Y2E1NDVmNTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYjZiNDA0NDkxNTU1M2MxYmVjNTRlOWE4M2EzYzIyY2I2N2IzMTdhMWRmMTA3NDE1MDZhNTk0ZDM2OGVhNjVmNjBhIiwidWlkIjoiMTc0YWI1ZTVkOTY3MjFkMGJhNWY5OThlNTg2NWNhMTkiLCJ1c2VybmFtZSI6InRoZWR1Z2dlciJ9LCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTUwNzczNTAxNywiaGFzaCI6IjY4NGVmMWMzNGVlOGM5YmY1MTliNTYxMjIwOWFlN2Y1YmE2ODQ5NjgzNWY0Yzk0ZTMzYjkwNTkwYjJkOGQzNzQyMTk1NTk2Y2U4MmNkMDQ5N2NjMjc2NmRlMGFjMjU1M2I1Mjc0MWFmMzRhODYyMmUyNDExYzc3MDBhOTU0NTM2IiwiaGFzaF9tZXRhIjoiODMyZDQxNzUzMmQ3ZTgwNzQzNGE5MDMwMTM5ZjZlZjhmOTM2ZmI3NzcwOThmNDlkMThhMTNlNmJlZDczMDZlOSIsInNlcW5vIjoxNTU5MjI2fSwic2VydmljZSI6eyJob3N0bmFtZSI6InJpb3QtZ2Vhci5uZXQiLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjMzIn0sImN0aW1lIjoxNTA3NzM1MDI4LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6IjgyNzk1ZDBkNzRhMWQyOTM0NmJiYzFmNDI5OTFhMDBmNGNlNGZlM2FiYjZkMTk0OTgwOTkwMmE1NTQ3N2M3YzQiLCJzZXFubyI6MjMsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RAWGFVAmkgshhtIDiwyZ92Zo38ajPl6qh7tvBbzMsfIguPfO+8fWtg6pVUaUz4lDiEs9gNake3MLA+7EMKOveWDqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBpAEnlVvsfwkgs2Sf6DO26NsdHtYpE29uoxE6wy3Keio3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/thedugger
+
+==================================================================

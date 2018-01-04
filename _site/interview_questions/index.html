@@ -5,13 +5,13 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nil as a Hash Key – alex_dugger $&gt;</title>
-    <meta name="description" content="This is something you can do, but should you…">
+    <title>Interview Questions: Introduction – alex_dugger $&gt;</title>
+    <meta name="description" content="">
     <meta name="keywords" content="">
-    <link rel="canonical" href="http://localhost:4000/nil-as-a-hash-key/">
+    <link rel="canonical" href="http://localhost:4000/interview_questions/">
         <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Nil as a Hash Key">
-    <meta name="twitter:description" content="This is something you can do, but should you…">
+    <meta name="twitter:title" content="Interview Questions: Introduction">
+    <meta name="twitter:description" content="">
     <meta name="twitter:site" content="@alexdugger">
     <meta name="twitter:creator" content="@alexdugger">
     <meta name="twitter:card" content="summary">
@@ -19,9 +19,9 @@
     <!-- Open Graph -->
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Nil as a Hash Key">
-    <meta property="og:description" content="This is something you can do, but should you…">
-    <meta property="og:url" content="http://localhost:4000/nil-as-a-hash-key/">
+    <meta property="og:title" content="Interview Questions: Introduction">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://localhost:4000/interview_questions/">
     <meta property="og:site_name" content="alex_dugger $&gt;">
     <meta property="og:image" content="http://localhost:4000/assets/img/profile.png">
 
@@ -140,55 +140,35 @@
       <div class="yazilar">
         <div class="yazi">
           <div class="ustr">
-            <h2>Nil as a Hash Key</h2>
+            <h2>Interview Questions: Introduction</h2>
             <div class="yazibilgisi">
-              02 Oct 2015
+              01 Nov 2017
             </div>
           </div>
           <hr>
           <div class="content">
-            <p>I was doing a little code review with a teammate and one of his hash definitions caught my eye.  It looked something like this…</p>
+            <p>Coding interviews suck for everyone involved. The problems are predictable and often don’t reflect actual development tasks.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">hsh</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="no">Foo</span><span class="p">,</span>
-  <span class="ss">:bar</span> <span class="o">=&gt;</span> <span class="no">Bar</span><span class="p">,</span>
-  <span class="kp">nil</span>  <span class="o">=&gt;</span> <span class="no">Qux</span>
-<span class="p">}</span></code></pre></figure>
+<h5 id="it-burns-us"><em>“It Burns Us!”</em></h5>
+<p>Yes, Sméagol. Yes it does…</p>
 
-<p>This had nothing to do with our conversation, but… ‘nil’? “Can you really use ‘nil’ as a Hash key?” I asked.  Apparently you can. After all (<a href="https://youtu.be/OMPfEXIlTVE">as Sandi Metz taught us</a>) nothing IS something. So, I tried it, and sure enough, it works.  You can use the ‘active nothing’ in this way.</p>
+<p>So, I’m collecting here the Interview Questions I’ve heard of first or second hand, along with my solutions and commentary.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">k1</span> <span class="o">=</span> <span class="n">method_that_might_return_a_symbol</span><span class="p">()</span>
-<span class="c1">#=&gt; :foo</span>
-<span class="n">hsh</span><span class="p">[</span><span class="n">k1</span><span class="p">].</span><span class="nf">new</span>
-<span class="c1">#=&gt; #&lt;Foo:0x007fc8b203b970&gt;</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">method_that_might_return_a_symbol</span><span class="p">()</span>
-<span class="c1">#=&gt; nil</span>
-<span class="n">hsh</span><span class="p">[</span><span class="n">key</span><span class="p">].</span><span class="nf">new</span>
-<span class="c1">#=&gt; #&lt;Qux:0x007fc8b203b970&gt;</span></code></pre></figure>
+<p>Hopefully this can be informative to other preparing for the dreaded coding interview, and maybe, just maybe, someone will just look at this and let me skip that little bit of hell.</p>
 
-<p>Now, I’m not sure there is a huge use case for this, but it is cleaner than writing a condition to ensure the Hash has a value before calling it, so it might have some uses.</p>
+<h3 id="general-complaints">General Complaints</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">hsh</span><span class="p">[</span><span class="n">key</span><span class="p">].</span><span class="nf">new</span> <span class="k">if</span> <span class="n">hsh</span><span class="p">[</span><span class="n">key</span><span class="p">]</span></code></pre></figure>
+<ol>
+  <li>No Googling! …</li>
+  <li>No Frameworks! …</li>
+</ol>
 
-<p>However, this doesn’t let you get around passing a key.</p>
+<h3 id="table-of-contents">Table of Contents</h3>
+<h4 id="fibonacci"><a href="./fibonacci/Readme.md">Fibonacci</a></h4>
+<p>Calculate the <em>n</em>th digit of the Fibonacci sequence.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">hsh</span><span class="p">[]</span>
-<span class="c1">#=&gt; ArgumentError: wrong number of arguments (0 for 1)</span></code></pre></figure>
-
-<p>That is, unless you do this first…</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Hash</span>
-  <span class="nc">SETTER</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">instance_method</span><span class="p">(</span><span class="ss">:[]=</span><span class="p">)</span>
-  <span class="no">GETTER</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">instance_method</span><span class="p">(</span><span class="ss">:[]</span><span class="p">)</span>
-  <span class="k">def</span> <span class="nf">[]=</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="kp">nil</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-    <span class="no">SETTER</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="nb">self</span><span class="p">).</span><span class="nf">call</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-  <span class="k">end</span>
-  <span class="k">def</span> <span class="nf">[]</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="kp">nil</span><span class="p">)</span>
-    <span class="no">GETTER</span><span class="p">.</span><span class="nf">bind</span><span class="p">(</span><span class="nb">self</span><span class="p">).</span><span class="nf">call</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
-
-<p>…but you should probably never do that.</p>
+<h4 id="finding-pairs">Finding Pairs</h4>
+<p>Given an array of integers find unique pairs that add up to <em>n</em>.</p>
 
           </div>
         </div>

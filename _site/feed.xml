@@ -1,11 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://riot-gear.net/feed.xml" rel="self" type="application/atom+xml" /><link href="http://riot-gear.net/" rel="alternate" type="text/html" /><updated>2017-10-11T08:24:42-07:00</updated><id>http://riot-gear.net/</id><title type="html">alex_dugger $&amp;gt;</title><subtitle>Software Engineer with passion for designing and building practicle solutions to complex problems.
-</subtitle><entry><title type="html">Blattfruit Pie</title><link href="http://riot-gear.net/blattfruit_pie/" rel="alternate" type="text/html" title="Blattfruit Pie" /><published>2017-08-25T00:00:00-07:00</published><updated>2017-08-25T00:00:00-07:00</updated><id>http://riot-gear.net/blattfruit_pie</id><content type="html" xml:base="http://riot-gear.net/blattfruit_pie/">&lt;p&gt;Several years ago my stupid brother (the target) liked to prank my family by changing the backgrounds of laptops, phones, and tablets to his stupid face. It was funny, but got annoying, and he took it too far.  He changed my mother’s background to the &lt;a href=&quot;http://knowyourmeme.com/memes/jeff-goldblum-is-watching-you-poop&quot;&gt;“Jeff Goldblum is Watching You Poop”&lt;/a&gt; meme.  She wasn’t pleased. I devised this project as retaliation on her behalf.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-01-03T10:59:36-05:00</updated><id>http://localhost:4000/</id><title type="html">alex_dugger $&amp;gt;</title><subtitle>Software Engineer with passion for designing and building practicle solutions to complex problems.
+</subtitle><entry><title type="html">Interview Questions: Fibonacci</title><link href="http://localhost:4000/iq1-fibonacci/" rel="alternate" type="text/html" title="Interview Questions: Fibonacci" /><published>2017-11-01T01:08:13-04:00</published><updated>2017-11-01T01:08:13-04:00</updated><id>http://localhost:4000/iq1-fibonacci</id><content type="html" xml:base="http://localhost:4000/iq1-fibonacci/">&lt;p&gt;&lt;em&gt;Calculate the *n&lt;/em&gt;&lt;sup&gt;th&lt;/sup&gt; digit of the Fibonacci sequence.*&lt;/p&gt;
+
+&lt;p&gt;I think it’s safe to say that no software developer in their day to day work has ever actually had to write this algorithm.  Like most coding interview questions, it’s not representative of the real work of software development.  How do you deal with this?  Well, short of telling the interviewer how dumb it is, let’s see how you can use this question to show that you can write actual code and not just output memorized functions.&lt;/p&gt;
+
+&lt;h3 id=&quot;recursion&quot;&gt;Recursion&lt;/h3&gt;
+
+&lt;p&gt;The gut instinct on this one is to use recursion.  In fact the interviewer might be wanting you to do that very thing to show that you understand the concept.  It even seems to make sense to do since Fibonacci is just:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;f(n) == f(n-1) + f(n-2)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the words of our favorite Admiral…&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;It’s a trap!&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The recursive approach to this question is inefficient, unnecessary, and doesn’t really work.  Here is the common implementation using recursion.  It seems to work, and returns the 23rd digit in roughly 1/100th of a second.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;./recursive_fib.rb&quot;&gt;./recursive_fib.rb&lt;/a&gt;&lt;/p&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;def recursive_fib(n)
+  return n if (0..1).include? n
+  (recursive_fib(n-1) + recursive_fib(n-2))
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, what’s the problem?  Well, since the function often calls itself twice with each pass the number of calls grows exponentially with the digit being calculated.  It’s not quite 2^n, closer to 2^(.75n), but that’s still really bad!  Calculating the 35th digit takes almost 4 seconds and 29,860,703 function calls; the 40th digit takes over 40 seconds and 331,160,281 function calls; and I got tired of waiting for it to finish the 45th at 8.5 minutes and 3.67 billion calls.&lt;/p&gt;
+
+&lt;p&gt;Fibonacci is a simple calculation to iterate over, so don’t over think it.  Here’s the most basic implementation I’ve come up with; on my computer it calculates the millionth Fibonacci digit in about 18 seconds.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;./simple_fib.rb&quot;&gt;./simple_fib.rb&lt;/a&gt;&lt;/p&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;def simple_fib(n)
+  x,y = [0,1]
+  for i in 0..(n-1)
+    x,y = [y,x+y]
+  end
+  return x
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sure, it’s three more lines of code, but its straight forward, simple, and damn is it fast.&lt;/p&gt;
+
+&lt;h3 id=&quot;caching&quot;&gt;Caching&lt;/h3&gt;
+
+&lt;p&gt;“Wait”, the interviewer might say, “can’t you speed up the recursive approach with caching!?”&lt;/p&gt;
+
+&lt;p&gt;Sure you can, like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;./recursive_fib_with_cache.rb&quot;&gt;./recursive_fib_with_cache.rb&lt;/a&gt;&lt;/p&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;def recursive_fib_with_cache(n)
+  @cache ||= {}
+  return n if (0..1).include?(n)
+  return @cache[n] if @cache[n]
+  @cache[n] = (recursive_fib_with_cache(n-1) + recursive_fib_with_cache(n-2))
+end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Before recursively calling the function (twice), I check the cache to see if I already have the value.  If not, make the calls to calculate it and store it in the cache.  It’s easy, and it works.  Now calculating the 45th digit of Fibonacci is practically instant (4.6e-05 seconds) and only takes 89 function calls. Great, right? Let’s try for the millionth digit again.  I wonder if it can beat the 18 seconds from the simple approach…&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;SystemStackError: stack level too deep&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Damn! Turns out this implementation will hit a stack level too deep error when calculating digit 9345 or greater.  This is simply a limitation of Ruby, and while there are some possible work arounds, infinite stack depth isn’t really a solution, and even if it was, this approach isn’t faster. At the largest digit I can calculate with this function, 9344, I get my result in 1/100 of a seconds, which is still slower that the 8/1000 of a second it takes with simple_fib.&lt;/p&gt;
+
+&lt;p&gt;Simple Fib for the win! …but wait, there’s more!&lt;/p&gt;
+
+&lt;h3 id=&quot;oo&quot;&gt;OO&lt;/h3&gt;
+
+&lt;p&gt;The previous examples as so… functional, but Ruby is an Object Oriented Language. We should make a model for this, but don’t just wrap it up in a class without making it better.  We can move the starting values into the initialize method, set the defaults, and add support for nonstandard starting numbers.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;./fib.rb&quot;&gt;./fib.rb&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;class Fib
+  def initialize(x=0, y=1)
+    @x, @y = [x,y]
+  end
+
+  def calc(n)
+    x,y = [@x,@y]
+    for i in 1..(n)
+      x,y = [y,x+y]
+    end
+    x
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That’s a bit more like the code I write at my job, and it has more options to boot.&lt;/p&gt;
+
+&lt;p&gt;There’s one more thing I would do to make this better.  In fact, its the thing I should have done first…&lt;/p&gt;
+
+&lt;h3 id=&quot;unit-tests&quot;&gt;Unit Tests&lt;/h3&gt;
+
+&lt;p&gt;Test Driven Development is the right thing to do, so do it, even in a stupid coding interview.  Here I’ve broken up the tests into their own file, but most coding interviews only give you a glorified text editor.  That’s fine, just put the tests at the bottom after the class and everything should run just fine.  There’s probably not a test framework available, so don’t rely on one.  Just check that you are getting the results back you expect and print out the result.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;./fib_test.rb&quot;&gt;./fib_test.rb&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Ruby&quot;&gt;require './fib.rb'
+f1 = Fib.new
+p f1.calc(0) == 0
+p f1.calc(10) == 55
+p f1.calc(100) == 354224848179261915075
+
+f2 = Fib.new(3,4)
+p f2.calc(5) == 29
+p f2.calc(20) == 39603
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Sure, these tests are very basic, just asserting we get the value we expect, but this problem isn’t complicated and the expected results are known values, so I’ll leave it at that.&lt;/p&gt;
+
+&lt;p&gt;I could go on and test what happens when we pass a negative number to the calc method, or when we pass a string or other object to when we initialize.  This code doesn’t do any input validation, so it wont handle those cases well.  I think I’ll save that for another time.&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">Interview Questions: Introduction</title><link href="http://localhost:4000/interview_questions/" rel="alternate" type="text/html" title="Interview Questions: Introduction" /><published>2017-11-01T01:08:13-04:00</published><updated>2017-11-01T01:08:13-04:00</updated><id>http://localhost:4000/interview_questions</id><content type="html" xml:base="http://localhost:4000/interview_questions/">&lt;p&gt;Coding interviews suck for everyone involved. The problems are predictable and often don’t reflect actual development tasks.&lt;/p&gt;
+
+&lt;h5 id=&quot;it-burns-us&quot;&gt;&lt;em&gt;“It Burns Us!”&lt;/em&gt;&lt;/h5&gt;
+&lt;p&gt;Yes, Sméagol. Yes it does…&lt;/p&gt;
+
+&lt;p&gt;So, I’m collecting here the Interview Questions I’ve heard of first or second hand, along with my solutions and commentary.&lt;/p&gt;
+
+&lt;p&gt;Hopefully this can be informative to other preparing for the dreaded coding interview, and maybe, just maybe, someone will just look at this and let me skip that little bit of hell.&lt;/p&gt;
+
+&lt;h3 id=&quot;general-complaints&quot;&gt;General Complaints&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;No Googling! …&lt;/li&gt;
+  &lt;li&gt;No Frameworks! …&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h3&gt;
+&lt;h4 id=&quot;fibonacci&quot;&gt;&lt;a href=&quot;./fibonacci/Readme.md&quot;&gt;Fibonacci&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;Calculate the &lt;em&gt;n&lt;/em&gt;th digit of the Fibonacci sequence.&lt;/p&gt;
+
+&lt;h4 id=&quot;finding-pairs&quot;&gt;Finding Pairs&lt;/h4&gt;
+&lt;p&gt;Given an array of integers find unique pairs that add up to &lt;em&gt;n&lt;/em&gt;.&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">Blattfruit Pie</title><link href="http://localhost:4000/blattfruit_pie/" rel="alternate" type="text/html" title="Blattfruit Pie" /><published>2017-08-25T00:00:00-04:00</published><updated>2017-08-25T00:00:00-04:00</updated><id>http://localhost:4000/blattfruit_pie</id><content type="html" xml:base="http://localhost:4000/blattfruit_pie/">&lt;p&gt;Several years ago my stupid brother (the target) liked to prank my family by changing the backgrounds of laptops, phones, and tablets to his stupid face. It was funny, but got annoying, and he took it too far.  He changed my mother’s background to the &lt;a href=&quot;http://knowyourmeme.com/memes/jeff-goldblum-is-watching-you-poop&quot;&gt;“Jeff Goldblum is Watching You Poop”&lt;/a&gt; meme.  She wasn’t pleased. I devised this project as retaliation on her behalf.&lt;/p&gt;
 
 &lt;h3 id=&quot;github-duggerblattfruit_pie&quot;&gt;Github: &lt;a href=&quot;https://github.com/dugger/blattfruit_pie&quot;&gt;dugger/blattfruit_pie&lt;/a&gt;&lt;/h3&gt;
 
 &lt;p&gt;My brother introduced me to video games.  Playing Sierra’s Quest games on his Commodore Amiga is one of the fondest memories I have of my childhood.  There is a piece of dialog in Space Quest III I’ve always found funny. When you order your food at Monolith Burger, The Pushy Counter Clerk asks “Would you like a Blattfruit Pie with that?”, your options are Yes and Yes. I picked this idea as the center of my trolling for nostalgia and because I knew it would be instantly recognizable to my target.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://riot-gear.net/assets/img/blattfruit-applescript.png&quot; alt=&quot;Would you like a Blattfruit Pie with that?&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/blattfruit-applescript.png&quot; alt=&quot;Would you like a Blattfruit Pie with that?&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The original version was a simple dialog box built using AppleScript.  It lacked the styling of the dialog box from the game, but it got the point across.&lt;/p&gt;
 
@@ -16,13 +155,13 @@
 
 &lt;p&gt;The dialog was triggered using a cron task that I installed on the target’s machine; a little bash script would curl a text file I stored in a public Dropbox folder, read the unix timestamp from the file, and trigger the dialog if the timestamp had passed.  I had to install it manually on his machine, and I had to have his password in order to allow the dialog app to be run (since the app isn’t signed).  Despite all this, I installed it successfully, and for the next nine months my family reveled in his confused excitement at discovering some secret easter egg in OS X.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://riot-gear.net/assets/img/blattfruit.png&quot; alt=&quot;Would you like a Blattfruit Pie with that?&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/blattfruit.png&quot; alt=&quot;Would you like a Blattfruit Pie with that?&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In the end he got a new computer and I never got to reinstall it there, so it died.  I confessed to it not long after, and we had a good laugh, but I’ve never been able to put this project to bed.  I’ve always wanted to learn more C / Objective C / Xcode, and this provided a fine base for doing that.  So far I’ve rebuilt the dialog in Xcode and styled it to look just like the game, and I’ve got a list of new features I want to add.  Someday I’ll install the new and improved version on his computer…&lt;/p&gt;</content><author><name>Me!</name></author><summary type="html">A little 'trojan' I wrote to troll my brother.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://riot-gear.net/assets/img/blattfruit-pcc.png" /></entry><entry><title type="html">Snacky French</title><link href="http://riot-gear.net/snacky_french/" rel="alternate" type="text/html" title="Snacky French" /><published>2017-07-01T00:00:00-07:00</published><updated>2017-07-01T00:00:00-07:00</updated><id>http://riot-gear.net/snacky_french</id><content type="html" xml:base="http://riot-gear.net/snacky_french/">&lt;p&gt;A good friend of mine needed a web presence to show off her amazing custom cakes and baked treats, so I built her one.&lt;/p&gt;
+&lt;p&gt;In the end he got a new computer and I never got to reinstall it there, so it died.  I confessed to it not long after, and we had a good laugh, but I’ve never been able to put this project to bed.  I’ve always wanted to learn more C / Objective C / Xcode, and this provided a fine base for doing that.  So far I’ve rebuilt the dialog in Xcode and styled it to look just like the game, and I’ve got a list of new features I want to add.  Someday I’ll install the new and improved version on his computer…&lt;/p&gt;</content><author><name>Me!</name></author><summary type="html">A little 'trojan' I wrote to troll my brother.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/blattfruit-pcc.png" /></entry><entry><title type="html">Snacky French</title><link href="http://localhost:4000/snacky_french/" rel="alternate" type="text/html" title="Snacky French" /><published>2017-07-01T00:00:00-04:00</published><updated>2017-07-01T00:00:00-04:00</updated><id>http://localhost:4000/snacky_french</id><content type="html" xml:base="http://localhost:4000/snacky_french/">&lt;p&gt;A good friend of mine needed a web presence to show off her amazing custom cakes and baked treats, so I built her one.&lt;/p&gt;
 
 &lt;p&gt;In 2017, we updated to use a cleaner, responsive site that put the focus on her products.  By switching from a custom built and hosted site to Square Space she is now able to easily make changes and add new content without needing my help.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;{snackyfrench.com}}&quot;&gt;Snacky French&lt;/a&gt;&lt;/p&gt;</content><author><name>Me!</name></author><summary type="html">A Bakers Website!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://riot-gear.net/assets/img/snacky_french_ss.png" /></entry><entry><title type="html">Nil as a Hash Key</title><link href="http://riot-gear.net/nil-as-a-hash-key/" rel="alternate" type="text/html" title="Nil as a Hash Key" /><published>2015-10-02T08:08:13-07:00</published><updated>2015-10-02T08:08:13-07:00</updated><id>http://riot-gear.net/nil-as-a-hash-key</id><content type="html" xml:base="http://riot-gear.net/nil-as-a-hash-key/">&lt;p&gt;I was doing a little code review with a teammate and one of his hash definitions caught my eye.  It looked something like this…&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;{snackyfrench.com}}&quot;&gt;Snacky French&lt;/a&gt;&lt;/p&gt;</content><author><name>Me!</name></author><summary type="html">A Bakers Website!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/snacky_french_ss.png" /></entry><entry><title type="html">Nil as a Hash Key</title><link href="http://localhost:4000/nil-as-a-hash-key/" rel="alternate" type="text/html" title="Nil as a Hash Key" /><published>2015-10-02T11:08:13-04:00</published><updated>2015-10-02T11:08:13-04:00</updated><id>http://localhost:4000/nil-as-a-hash-key</id><content type="html" xml:base="http://localhost:4000/nil-as-a-hash-key/">&lt;p&gt;I was doing a little code review with a teammate and one of his hash definitions caught my eye.  It looked something like this…&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;hsh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;ss&quot;&gt;:foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
@@ -63,7 +202,7 @@
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;…but you should probably never do that.&lt;/p&gt;</content><author><name></name></author><summary type="html">This is something you can do, but should you...</summary></entry><entry><title type="html">This American Life: Audio Hackathon</title><link href="http://riot-gear.net/tal_audio_hackathon/" rel="alternate" type="text/html" title="This American Life: Audio Hackathon" /><published>2015-09-21T00:00:00-07:00</published><updated>2015-09-21T00:00:00-07:00</updated><id>http://riot-gear.net/tal_audio_hackathon</id><content type="html" xml:base="http://riot-gear.net/tal_audio_hackathon/">&lt;p&gt;In 2015 took part in an audio themed Hackathon put on by This American Life and ThoughtWorks.&lt;/p&gt;
+&lt;p&gt;…but you should probably never do that.&lt;/p&gt;</content><author><name></name></author><summary type="html">This is something you can do, but should you...</summary></entry><entry><title type="html">This American Life: Audio Hackathon</title><link href="http://localhost:4000/tal_audio_hackathon/" rel="alternate" type="text/html" title="This American Life: Audio Hackathon" /><published>2015-09-21T00:00:00-04:00</published><updated>2015-09-21T00:00:00-04:00</updated><id>http://localhost:4000/tal_audio_hackathon</id><content type="html" xml:base="http://localhost:4000/tal_audio_hackathon/">&lt;p&gt;In 2015 took part in an audio themed Hackathon put on by This American Life and ThoughtWorks.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://lamivo.com/thisamericanlife-hackathon&quot;&gt;http://lamivo.com/thisamericanlife-hackathon&lt;/a&gt;&lt;/p&gt;
 
@@ -75,4 +214,4 @@
 
 &lt;p&gt;This project became the inspiration for a fully developed tool from This American Life, Shortcut!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://shortcut.thisamericanlife.org&quot;&gt;https://shortcut.thisamericanlife.org&lt;/a&gt;&lt;/p&gt;</content><author><name>Me!</name></author><summary type="html">Audio Tools built in one weekend.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://riot-gear.net/assets/img/tal-ah-project.png" /></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://shortcut.thisamericanlife.org&quot;&gt;https://shortcut.thisamericanlife.org&lt;/a&gt;&lt;/p&gt;</content><author><name>Me!</name></author><summary type="html">Audio Tools built in one weekend.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/tal-ah-project.png" /></entry></feed>

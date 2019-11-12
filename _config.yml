@@ -6,7 +6,7 @@ description: >
   Software Engineer with passion for designing and building practicle solutions
   to complex problems.
 baseurl: ""
-url: "//riot-gear.net"
+url: "https://riot-gear.net"
 bio:            'Software Engineering and More!'
 picture:        'assets/img/profile.png'
 locale:         en_US

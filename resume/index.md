@@ -4,14 +4,15 @@ title: Resume
 tags: []
 date: 2017-08-01
 ---
-I'm a Full Stack Software Engineer with experience building scalable web applications using Ruby on
-Rails and other current technologies; a personable developer skilled at communicating in
-nontechnical ways and designing elegant solutions to complex problems.
+Senior Full Stack Software Engineer with a demonstrated history building scalable web applications. Skilled in Ruby on Rails, Software as a Service (SaaS), Full Stack Development, Scrum, and over a decade of experience working with remote teams. A personable developer skilled at communicating in nontechnical ways and designing elegant solutions to complex problems.
 
 ## Technical Skills
 
 Ruby on Rails, HTML, CSS, JavaScript, jQuery, MySQL, Git, REST, Linux, AngularJS
 Object Oriented Design, Test Driven Development, Agile, SCRUM, Remote Teams
+
+## Licenses & Certifications
+Amazon Web Service Cloud Practitioner
 
 ## Professional Experience
 

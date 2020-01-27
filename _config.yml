@@ -45,7 +45,7 @@ linkedin: alex-dugger-b2a2a9b4
 
 
 # Gems
-gems:
+plugins:
   - jekyll-mentions
   - jekyll-feed
   - jekyll-sitemap
